@@ -23,7 +23,8 @@ const db = getFirestore(app);
 
 const allowedUsers = {
   "daksh_kaushik": "Khagaria",
-  "idli_dosa": "iloveidli"
+  "idli_dosa": "iloveidli",
+  "pallavi_pandey":"pforpallavi"
 };
 
 let username = "";
