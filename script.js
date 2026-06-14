@@ -21,13 +21,40 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const username = prompt("Enter your name");
+const allowedUsers = {
+  "daksh": "12345",
+  "friend": "54321"
+};
+
+let username = "";
+
+window.login = function () {
+
+  const user = document.getElementById("username").value.trim();
+  const pass = document.getElementById("password").value.trim();
+
+  if (allowedUsers[user] === pass) {
+
+    username = user;
+
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("chatPage").style.display = "flex";
+
+  } else {
+
+    alert("Wrong Username or Password");
+
+  }
+
+};
 
 const chat = document.getElementById("chat");
 const input = document.getElementById("message");
 const sendBtn = document.getElementById("sendBtn");
 
 sendBtn.addEventListener("click", async () => {
+
+  if (username === "") return;
 
   if (input.value.trim() === "") return;
 
@@ -38,6 +65,7 @@ sendBtn.addEventListener("click", async () => {
   });
 
   input.value = "";
+
 });
 
 const q = query(
@@ -51,17 +79,33 @@ onSnapshot(q, (snapshot) => {
 
   snapshot.forEach((doc) => {
 
+    const data = doc.data();
+
     const div = document.createElement("div");
 
     div.className = "message";
 
-    const data = doc.data();
+    if (data.name === username) {
+      div.classList.add("me");
+    } else {
+      div.classList.add("friend");
+    }
 
-    div.textContent = `${data.name}: ${data.text}`;
+    const time = new Date(data.time).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+
+    div.innerHTML = `
+      <div class="name">${data.name}</div>
+      <div>${data.text}</div>
+      <div class="time">${time}</div>
+    `;
 
     chat.appendChild(div);
 
   });
 
   chat.scrollTop = chat.scrollHeight;
+
 });
