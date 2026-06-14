@@ -28,6 +28,16 @@
         <div id="chat"></div>
 
         <div class="bottom">
+            <button onclick="toggleEmoji()">😊</button>
+
+<div id="emojiBox" class="emoji-box" style="display:none;">
+    <span onclick="addEmoji('😀')">😀</span>
+    <span onclick="addEmoji('😂')">😂</span>
+    <span onclick="addEmoji('😍')">😍</span>
+    <span onclick="addEmoji('🔥')">🔥</span>
+    <span onclick="addEmoji('❤️')">❤️</span>
+    <span onclick="addEmoji('👍')">👍</span>
+</div>
             <input id="message" placeholder="Type a message...">
             <button id="sendBtn">Send</button>
         </div>
