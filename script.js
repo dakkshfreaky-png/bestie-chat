@@ -21,6 +21,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const username = prompt("Enter your name");
+
 const chat = document.getElementById("chat");
 const input = document.getElementById("message");
 const sendBtn = document.getElementById("sendBtn");
@@ -30,6 +32,7 @@ sendBtn.addEventListener("click", async () => {
   if (input.value.trim() === "") return;
 
   await addDoc(collection(db, "messages"), {
+    name: username,
     text: input.value,
     time: Date.now()
   });
@@ -52,7 +55,9 @@ onSnapshot(q, (snapshot) => {
 
     div.className = "message";
 
-    div.textContent = doc.data().text;
+    const data = doc.data();
+
+    div.textContent = `${data.name}: ${data.text}`;
 
     chat.appendChild(div);
 
