@@ -28,7 +28,7 @@ const allowedUsers = {
 
 let username = "";
 
-window.login = function () {
+document.getElementById("loginBtn").addEventListener("click", () => {
 
   const user = document.getElementById("username").value.trim();
   const pass = document.getElementById("password").value.trim();
@@ -46,7 +46,7 @@ window.login = function () {
 
   }
 
-};
+});
 
 const chat = document.getElementById("chat");
 const input = document.getElementById("message");
