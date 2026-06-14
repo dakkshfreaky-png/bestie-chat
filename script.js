@@ -22,8 +22,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const allowedUsers = {
-  "daksh": "12345",
-  "friend": "54321"
+  "daksh_kaushik": "Khagaria",
+  "idli_dosa": "iloveidli"
 };
 
 let username = "";
