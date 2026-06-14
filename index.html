@@ -6,16 +6,30 @@
 </head>
 <body>
 
-<h1>Bestie Chat 💖</h1>
+<div id="loginPage">
 
-<div id="chat"></div>
+    <h2>Bestie Chat Login</h2>
 
-<div class="bottom">
-    <input id="message" placeholder="Type a message...">
-    <button id="sendBtn">Send</button>
+    <input id="username" placeholder="Username">
+
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
 </div>
 
-<script type="module" src="script.js"></script>
+<div id="chatPage" style="display:none;">
+
+    <h1>Bestie Chat 💖</h1>
+
+    <div id="chat"></div>
+
+    <div class="bottom">
+        <input id="message" placeholder="Type a message...">
+        <button id="sendBtn">Send</button>
+    </div>
+
+</div>
 
 </body>
 </html>
