@@ -112,10 +112,22 @@ onSnapshot(q, (snapshot) => {
 });
 function toggleEmoji() {
     const box = document.getElementById("emojiBox");
-    box.style.display = box.style.display === "none" ? "flex" : "none";
+
+    if (box.style.display === "none" || box.style.display === "") {
+        box.style.display = "flex";
+    } else {
+        box.style.display = "none";
+    }
 }
 
 function addEmoji(emoji) {
-    const input = document.getElementById("msgInput");
+    const input = document.getElementById("message"); // 👈 FIXED
+
+    if (!input) {
+        console.log("Message input not found!");
+        return;
+    }
+
     input.value += emoji;
+    input.focus();
 }
