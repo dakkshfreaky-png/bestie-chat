@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestie Chat</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="loginPage">
+    <div id="loginPage">
 
-    <h2>Bestie Chat Login</h2>
+        <h2>Bestie Chat Login 💖</h2>
 
-    <input id="username" placeholder="Username">
+        <input id="username" placeholder="Username">
 
-    <input id="password" type="password" placeholder="Password">
+        <input id="password" type="password" placeholder="Password">
 
-    <button onclick="login()">Login</button>
+        <button id="loginBtn">Login</button>
 
-</div>
-
-<div id="chatPage" style="display:none;">
-
-    <h1>Bestie Chat 💖</h1>
-
-    <div id="chat"></div>
-
-    <div class="bottom">
-        <input id="message" placeholder="Type a message...">
-        <button id="sendBtn">Send</button>
     </div>
 
-</div>
+    <div id="chatPage" style="display:none;">
+
+        <h1>Bestie Chat 💖</h1>
+
+        <div id="chat"></div>
+
+        <div class="bottom">
+            <input id="message" placeholder="Type a message...">
+            <button id="sendBtn">Send</button>
+        </div>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
 
 </body>
+
 </html>
