@@ -110,3 +110,12 @@ onSnapshot(q, (snapshot) => {
   chat.scrollTop = chat.scrollHeight;
 
 });
+function toggleEmoji() {
+    const box = document.getElementById("emojiBox");
+    box.style.display = box.style.display === "none" ? "flex" : "none";
+}
+
+function addEmoji(emoji) {
+    const input = document.getElementById("msgInput");
+    input.value += emoji;
+}
