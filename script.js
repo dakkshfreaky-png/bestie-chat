@@ -24,6 +24,7 @@ const db = getFirestore(app);
 const allowedUsers = {
   "daksh_kaushik": "Khagaria",
   "aloo_kachalu" : "aloohunmain",
+  "prateek_kaushik":"prateekpagalhai"
 };
 
 let username = "";
